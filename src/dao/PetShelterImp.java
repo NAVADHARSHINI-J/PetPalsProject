@@ -15,7 +15,7 @@ public class PetShelterImp implements PetShelter{
 		try(Connection con=DBConnUtil.getConnection()){
 			PreparedStatement st=con.prepareStatement(sql);
 			st.setString(1,pet.getName());
-			if((pet.getName()).equals(null)) throw new NullReferenceException("Please Give value");
+			if((pet.getName()).equals("")) throw new NullReferenceException("Please Give value");
 			st.setInt(2, pet.getAge());
 			if(pet.getAge()<0) throw new InvalidAgeException("Age should be greater than zero");
 			 if (pet instanceof Dog) {
