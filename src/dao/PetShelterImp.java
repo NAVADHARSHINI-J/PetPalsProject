@@ -13,6 +13,7 @@ public class PetShelterImp implements PetShelter{
 	public boolean addPet(Pet pet) {
 		String sql="insert into pets (Name,age,breed,type,AvailableForAdoption)values(?,?,?,?,?)";
 		try(Connection con=DBConnUtil.getConnection()){
+			if((pet.getName().equals(""))||pet.gettype().equals("")) throw new NullReferenceException("Please Give value");
 			PreparedStatement st=con.prepareStatement(sql);
 			st.setString(1,pet.getName());
 			if((pet.getName()).equals("")) throw new NullReferenceException("Please Give value");
