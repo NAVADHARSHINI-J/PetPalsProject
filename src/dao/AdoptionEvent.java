@@ -6,7 +6,7 @@ import org.hexaware.entity.Partipants;
 
 import util.DBConnUtil;
 
-public class AdoptionEvent{
+public class AdoptionEvent implements Atobtable{
 		public void host() {
 			String sql="select * from adoptionevents";
 			try(Connection con=DBConnUtil.getConnection()){
